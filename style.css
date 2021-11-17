@@ -10,6 +10,7 @@ h3{
   font-family: 'Ubuntu', sans-serif;
   justify-content: center;
   text-align: center;
+  font-size: 30px;
 }
 
 footer{
@@ -19,8 +20,6 @@ footer{
   bottom:0;
   width: 100%;
   text-align: center;
-  font-size: 14px;
-  font-family: Helvetica;
 }
 
 .logo{
