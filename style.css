@@ -1,11 +1,12 @@
 body{
   background-color: rgb(0,3,31);
   color: white;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 /* Set the size of the div element that contains the map */
 #map {
-  height: 1000px;
+  height: 800px;
   /* The height is 400 pixels */
   width: 100%;
   /* The width is the width of the web page */
