@@ -1,14 +1,9 @@
-from flask import Flask, request, abort
+from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/webhook', methods=['POST'])
-def webhook():
-    if request.method == 'POST':
-        print(request.json)
-        return 'success', 200
-    else:
-        abort(400)
-
-if __name__ == '__main__':
-    app.run()
+@app.route('/', methods=['POST'])
+def result():
+    print(request.data)  # raw data
+    print(request.json)  # json (if content-type of application/json is sent with the request)
+    print(request.get_json(force=True))
