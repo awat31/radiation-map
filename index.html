@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Radiation Map - Not Bad Industrial</title>
-    <link rel="icon" href="favicon.png">
-    <meta content="text/html; charset=UTF-8; X-Content-Type-Options=nosniff" http-equiv="Content-Type" />
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script src="./index.js"></script>
-    <script src="./get_data.php"></script>
-    <script src="./index.ts"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <h3>Radiation Drone Data Map</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp5EOJ5kd499Xjn7upaxOH9RKUBWtzJRE&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
-  </body>
-  <footer><img src="NBINDWhite.png" alt="Not Bad Industrial Logo" class="logo"></footer>
+<head>
+  <title>Radiation Map - Not Bad Industrial</title>
+  <link rel="icon" href="favicon.png">
+  <meta content="text/html; charset=UTF-8; X-Content-Type-Options=nosniff" http-equiv="Content-Type" />
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <script src="./index.js"></script>
+  <script src="./get_data.php"></script>
+  <script src="./index.ts"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h3>Radiation Drone Data Map</h3>
+  <form action="get_data.php">
+    <input type="submit" value="Refresh Data">
+  </form>
+
+  <!--The div element for the map -->
+  <div id="map"></div>
+  <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+  <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp5EOJ5kd499Xjn7upaxOH9RKUBWtzJRE&callback=initMap&libraries=&v=weekly"
+  async
+  ></script>
+</body>
+<footer><img src="NBINDWhite.png" alt="Not Bad Industrial Logo" class="logo"></footer>
 </html>
