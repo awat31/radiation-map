@@ -4,6 +4,10 @@ body{
   font-family: 'Ubuntu', sans-serif;
 }
 
+h3{
+  font-family: 'Ubuntu', sans-serif;
+}
+
 /* Set the size of the div element that contains the map */
 #map {
   height: 800px;
