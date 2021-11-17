@@ -15,9 +15,7 @@
 </head>
 <body>
   <h3>Radiation Drone Data Map</h3>
-  <form action="./get_data.php">
-    <input type="submit" value="Refresh Data">
-  </form>
+  <input type="button" id='script' name="scriptbutton" value=" Run Script " onclick="exec('python dataretrieve.py');">
 
   <!--The div element for the map -->
   <div id="map"></div>
