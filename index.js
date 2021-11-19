@@ -15,3 +15,6 @@ function initMap() {
     map: map,
   });
 }
+
+setInterval(initMap, 2000);
+initMap();
