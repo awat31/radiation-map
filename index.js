@@ -18,4 +18,4 @@ function initMap(latitude, longitude) {
 }
 
 setInterval(initMap, 60000);
-initMap();
+initMap(latitude, longitude);
