@@ -16,5 +16,5 @@ function initMap() {
   });
 }
 
-setInterval(initMap, 2000);
+setInterval(initMap, 60000);
 initMap();
