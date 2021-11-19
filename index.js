@@ -1,9 +1,9 @@
 // Initialize and add the map
-function initMap() {
+function initMap(latitude, longitude) {
   // The location of Uluru
   //var div = document.getElementById("latitude");
   //var latitude = div.textContent;
-  const uluru = { lat: -12.543, lng: 131.036 };
+  const uluru = { lat: latitude, lng: longitude };
   // The map, centered at Uluru
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 4,
