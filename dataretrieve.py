@@ -2,7 +2,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/', methods=['POST'])
+@app.route('./index.js', methods=['POST'])
 def result():
     print(request.data)  # raw data
     print(request.json)  # json (if content-type of application/json is sent with the request)
