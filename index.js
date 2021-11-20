@@ -7,7 +7,7 @@ function initMap() {
   //var longitude = div.textContent;
   //var latitude = data.latitude
   //var longitude = data.longitude
-  const uluru = { lat: 0.00, lng: 0.00 };
+  const uluru = { lat: data.latitude, lng: data.longitude };
   // The map, centered at Uluru
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 4,
