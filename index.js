@@ -20,4 +20,4 @@ function initMap(data) {
 }
 
 setInterval(initMap, 60000);
-initMap(latitude, longitude);
+initMap();
