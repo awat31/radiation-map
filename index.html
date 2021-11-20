@@ -8,6 +8,10 @@
   <script src="./index.js"></script>
   <script src="./get_data.php"></script>
   <script src="./dataretrieve.py"></script>
+  <script type="text/javascript">
+            var latitude = {{ data.latitude }}
+            var longitude = {{ data.longitude }}
+  </script>
   <!--<script src="./index.ts"></script>-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,10 +24,6 @@
   <!--The div element for the map -->
   <div id="map"></div>
   <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-  <script type="text/javascript">
-            var latitude = {{ data.latitude }}
-            var longitude = {{ data.longitude }}
-  </script>
   <script
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp5EOJ5kd499Xjn7upaxOH9RKUBWtzJRE&callback=initMap&libraries=&v=weekly"
   async
