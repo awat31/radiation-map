@@ -1,5 +1,5 @@
 // Initialize and add the map
-function initMap(longitude, latitude) {
+function initMap(data) {
 
   // The location of Uluru
   var latitude = document.getElementById("latitude");
@@ -20,4 +20,4 @@ function initMap(longitude, latitude) {
 }
 
 setInterval(initMap, 60000);
-initMap(longitude, latitude);
+initMap(data);
