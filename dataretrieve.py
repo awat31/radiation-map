@@ -9,4 +9,5 @@ def result():
     print(request.get_json(force=True)) # json (if content-type of application/json is not sent)
     data = { 'latitude': -12.543, 'longitude': 131.036 }
     print(data)
-    return render_template('./index.html', data=data)
+    return render_template('./index.html', latitude=data.latitude)
+    return render_template('./index.html', longitude=data.longitude)
