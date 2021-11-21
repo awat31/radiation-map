@@ -1,8 +1,8 @@
 // Initialize and add the map
 function initMap() {
   // The location of Uluru
-  document.currentScript.getAttribute('latitude');
-  document.currentScript.getAttribute('longitude');
+  latitude = document.currentScript.getAttribute('latitude');
+  longitude = document.currentScript.getAttribute('longitude');
 
   const uluru = { lat: latitude, lng: latitude };
   // The map, centered at Uluru
