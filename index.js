@@ -16,4 +16,4 @@ function initMap(latitude, longitude) {
   });
 }
 setInterval(initMap, 60000);
-initMap(latitude, longitude);
+initMap(31.1097, 55.1356);
