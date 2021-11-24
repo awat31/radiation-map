@@ -1,5 +1,5 @@
 // Initialize and add the map
-function initMap() {
+function initMap(latitude, longitude) {
   // The location of Uluru
   //var latitude = 31.1097
   //var longitude = 55.1356
@@ -16,4 +16,4 @@ function initMap() {
   });
 }
 setInterval(initMap, 60000);
-initMap();
+initMap(latitude, longitude);
