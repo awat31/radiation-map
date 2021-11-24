@@ -11,7 +11,7 @@ def index_render():
 return render_template("index.html")
 
 @app.route('/index')
-def test_page_view():
+def index():
     return render_template('js/index.js', latitude=latitude)
     return render_template('js/index.js', longitude=longitude)
 
@@ -30,4 +30,5 @@ def test_page_view():
 # Add a section to use the dd conversion script to fix data
 
 if __name__ == '__main__':
-    result()
+    index_render()
+    index()
