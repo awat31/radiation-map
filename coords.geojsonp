@@ -1,4 +1,4 @@
-eqfeed_callback{"type": "FeatureCollection",
+eqfeed_callback({"type": "FeatureCollection",
   "features": [
     {
       "type": "Feature",
