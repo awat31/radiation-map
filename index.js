@@ -11,6 +11,10 @@ function initMap() {
     "./coords.geojson"
   );
 
+  var infowindow = new google.maps.InfoWindow({
+  pixelOffset: new google.maps.Size(0, -40) // offset for icon
+});
+
   map.data.addListener('mouseover', function(evt) {
   infowindow.setContent(evt.feature.getProperty('PPM'));
   infowindow.setPosition(evt.feature.getGeometry().get());
