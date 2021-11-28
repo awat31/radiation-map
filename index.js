@@ -1,5 +1,4 @@
 let map;
-import 'style.css';
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
