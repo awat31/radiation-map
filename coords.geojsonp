@@ -3,8 +3,8 @@ eqfeed_callback({"type": "FeatureCollection",
     {
       "type": "Feature",
       "geometry": {
-        "type": "Point",
-        "coordinates": [-3.2336, 55.9337, 63.0]
+        "type": "Polygon",
+        "coordinates": [[-3.2336, 55.9337, 63.0][-3.2339, 55.9339, 63.4][-3.2340, 55.9340, 63.3][[-3.2336, 55.9337, 63.0]]
       },
       "properties": {
         "PPM": "200"
