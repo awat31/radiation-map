@@ -19,6 +19,11 @@ eqfeed_callback(
             [4.4444, 53.9700], [3.3333, 55.9400]
           ]
         ]
+      },
+      "style":{
+      "fill":"red",
+      "stroke-width":"3",
+      "fill-opacity":0.6
       }
     }
 ]
