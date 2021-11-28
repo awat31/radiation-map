@@ -4,7 +4,7 @@ eqfeed_callback({"type": "FeatureCollection",
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": 55.933712, -3.23363638]
+        "coordinates": 55.9337, -3.2336]
       },
       "properties": {
         "PPM": "200"
