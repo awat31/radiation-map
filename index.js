@@ -1,19 +1,5 @@
 let map;
 
-const styles = {
-  'Polygon': new Style({
-    stroke: new Stroke({
-      color: 'blue',
-      lineDash: [4],
-      width: 3,
-    }),
-  }),
-};
-
-const styleFunction = function (feature) {
-  return styles[feature.getGeometry().getType()];
-};
-
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 9,
