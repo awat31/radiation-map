@@ -9,7 +9,7 @@ eqfeed_callback(
         "type": "Point",
         "coordinates": [-3.23363638, 55.933712]
       }
-    }
+    },
 
     {
       "type": "Feature",
