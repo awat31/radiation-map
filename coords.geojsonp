@@ -13,6 +13,7 @@ eqfeed_callback(
           ]
         ]
       },
+      }
       {
         "type": "Feature",
         "geometry": {

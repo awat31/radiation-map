@@ -1,9 +1,5 @@
 let map;
 
-const styleFunction = function (feature) {
-  return styles[feature.getGeometry().getType()];
-};
-
 const styles = {
   'Polygon': new Style({
     stroke: new Stroke({
@@ -12,6 +8,10 @@ const styles = {
       width: 3,
     }),
   }),
+};
+
+const styleFunction = function (feature) {
+  return styles[feature.getGeometry().getType()];
 };
 
 function initMap() {
