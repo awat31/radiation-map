@@ -11,4 +11,10 @@ function initMap() {
     "./coords.geojson"
   );
 
+  map.data.addListener('mouseover', function(evt) {
+  infowindow.setContent(evt.feature.getProperty('PPM'));
+  infowindow.setPosition(evt.feature.getGeometry().get());
+  infowindow.open(map);
+});
+
 }
