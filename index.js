@@ -15,7 +15,7 @@ function initMap() {
   pixelOffset: new google.maps.Size(0, -40) // offset for icon
 });
 
-  map.data.addListener('onclick', function(evt) {
+  map.data.addListener('click', function(evt) {
   infowindow.setContent(evt.feature.getProperty('PPM'));
   infowindow.setPosition(evt.feature.getGeometry().get());
   infowindow.open(map);
