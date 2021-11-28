@@ -1,0 +1,15 @@
+eqfeed_callback{"type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [31.1097, 55.1356]
+      },
+      "properties": {
+        "PPM": "200"
+      }
+    }
+  ]
+}
+)
