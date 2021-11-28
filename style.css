@@ -1,6 +1,6 @@
 body{
   background-color: rgb(0,3,31);
-  color: white;
+  color: black;
   font-family: 'Montserrat', sans-serif;
   justify-content: center;
   text-align: center;
@@ -11,6 +11,7 @@ h3{
   justify-content: center;
   text-align: center;
   font-size: 25px;
+  color: white;
 }
 
 footer{
