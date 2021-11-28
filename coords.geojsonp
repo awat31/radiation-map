@@ -6,23 +6,17 @@ eqfeed_callback({"type": "FeatureCollection",
         "type": "Point",
         "coordinates": [-3.23363638, 55.933712]
       },
-      "properties": {
-        "PPM": 200
-      }
     },
     {
       "type": "Feature",
       "geometry": {
-        "type": "Polygon",
+        "type": "MultiPolygon",
         "coordinates": [
           [
             [3.3333, 55.9400], [3.4444, 55.9500], [3.5555, 55.9600],
             [3.6666, 55.9700], [3.3333, 55.9400]
           ]
         ]
-      },
-      "properties": {
-        "PPM": 200
       }
     }
   ]
