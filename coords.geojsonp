@@ -1,4 +1,10 @@
-eqfeed_callback({"type": "FeatureCollection",
+eqfeed_callback(
+{
+  "type": "FeatureCollection",
+  "style":{
+    "stroke":"black"
+  },
+  }
   "features": [
     {
       "type": "Feature",
@@ -10,13 +16,17 @@ eqfeed_callback({"type": "FeatureCollection",
     {
       "type": "Feature",
       "geometry": {
-        "type": "MultiPolygon",
+        "type": "Polygon",
         "coordinates": [
           [
             [3.3333, 55.9400], [4.4444, 55.9500], [6.5555, 50.9600],
             [4.4444, 53.9700], [3.3333, 55.9400]
           ]
         ]
+      },
+      "className":{
+          "baseVal":"line2"
+      }
       }
     }
   ]
