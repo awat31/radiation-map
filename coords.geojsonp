@@ -1,9 +1,7 @@
 eqfeed_callback(
 {
   "type": "FeatureCollection",
-  "style":{
-    "stroke":"black"
-  },
+
   }
   "features": [
     {
