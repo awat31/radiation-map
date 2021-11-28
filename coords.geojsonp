@@ -13,23 +13,14 @@ eqfeed_callback(
           ]
         ]
       },
-      "style":{
-        "fill":"red",
-        "stroke-width":"3",
-        "fill-opacity":0.6
-      },
-      "line2":{
-        "baseVal":"line2"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-3.23363638, 55.933712]
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-3.23363638, 55.933712]
+        }
       }
     }
-
   ]
 }
 )
