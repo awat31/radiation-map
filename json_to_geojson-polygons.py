@@ -14,7 +14,7 @@ def main():
     altitude = ''
     PPM = 0
     json_output = 'temp.json'
-    final_output = 'coords.json'
+    final_output = 'coords.geojson'
     safe = []
     okay = []
     notgood = []
@@ -105,7 +105,7 @@ def main():
             finalfile = open(final_output, "w")
             finalfile.write(endtowrite)
             finalfile.close()
-    #os.remove(json_output)
+    os.remove(json_output)
             
 
 if __name__ == '__main__':
