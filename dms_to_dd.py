@@ -56,8 +56,6 @@ def main(latitude, longitude):
 
     #---------Print Finals-------------------------------------------
 
-    print(final_latitude)
-    print(final_longitude)
     return(final_latitude, final_longitude)
 
 

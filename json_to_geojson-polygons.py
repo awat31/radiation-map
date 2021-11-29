@@ -50,14 +50,6 @@ def main():
            elif intPPM > 10000:
                fucked.append(secondlevel)
 
-    #print(safe)
-    #print(len(safe))
-    #print(deadly)
-    #print(len(deadly))
-    #print(len(alloptions))
-    #print(alloptions[0])
-    #print(len(alloptions[0]))
-
     for sql_data in alloptions:
         
         if len(sql_data) == 0:
@@ -72,10 +64,6 @@ def main():
             final_latitude = finals[0]
             final_longitude = finals[1]
             final_altitude = altitude_to_int.main(altitude)
-            print(final_latitude)
-            print(final_longitude)
-            print(final_altitude)
-            print(PPM)
             output_to_geojson.main(json_output, final_latitude, final_longitude, final_altitude, PPM)
 
         elif len(sql_data) > 2 :
@@ -90,15 +78,10 @@ def main():
                 final_latitude = finals[0]
                 final_longitude = finals[1]
                 final_altitude = altitude_to_int.main(altitude)
-                print(final_latitude)
-                print(final_longitude)
-                print(final_altitude)
-                print(PPM)
                 coordinates = [final_longitude, final_latitude]
                 polygondict.append(coordinates)
-                print(polygondict)
                 items = items + 1
-                
+            print(polygondict)    
             output_to_geojson_polygon.main(json_output, polygondict, PPM)    
                 
             

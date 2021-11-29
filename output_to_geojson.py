@@ -7,6 +7,7 @@ def main(json_output, latitude, longitude, altitude, ppm):
     geojson.write(r'}, "properties": {')
     geojson.write(f'"PPM": "{ppm}"')
     geojson.write(r' } },')
+    geojson.close()
     
 
 if __name__ == '__main__':
