@@ -1,0 +1,30 @@
+{
+  "particle-data":
+  [
+    {
+      "name": "PARTICLE-DATA",
+      "data": "{\"latitude\": \"N5556.1386\",\"longitude\":\"W00314.1201\",\"altitude\":\"46.599998M\",\"ppm\":\"225.020248\"}",
+      "published_at": "2021-11-24T15:48:18.616Z",
+      "coreid": "e00fce68a3d318c7a81128fe"
+    },
+    {
+      "name": "PARTICLE-DATA",
+      "data": "{\"latitude\":\"N5556.1391\",\"longitude\":\"W00314.1183\",\"altitude\":\"50.500000M\",\"ppm\":\"222.585602\"}",
+      "published_at": "2021-11-24T15:48:03.606Z",
+      "coreid": "e00fce68a3d318c7a81128fe"
+    },
+    {
+      "name": "PARTICLE-DATA",
+      "data": "{\"latitude\":\"N5554.1391\",\"longitude\":\"W00314.1183\",\"altitude\":\"50.500000M\",\"ppm\":\"224.8953\"}",
+      "published_at": "2021-11-24T15:48:03.606Z",
+      "coreid": "e00fce68a3d318c7a81128fe"
+    },
+    {
+      "name": "PARTICLE-DATA",
+      "data": "{\"latitude\":\"N5590.1391\",\"longitude\":\"W00314.1183\",\"altitude\":\"50.500000M\",\"ppm\":\"5000.5892\"}",
+      "published_at": "2021-11-24T15:48:03.606Z",
+      "coreid": "e00fce68a3d318c7a81128fe"
+    }
+
+  ]
+}
