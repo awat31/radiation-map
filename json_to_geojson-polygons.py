@@ -3,6 +3,7 @@ import json
 import altitude_to_int
 import output_to_geojson
 import output_to_geojson_polygon
+import os
 
 
 def main():
@@ -12,7 +13,8 @@ def main():
     converted_longitude = ''
     altitude = ''
     PPM = 0
-    json_output = 'coords.geojson'
+    json_output = 'temp.json'
+    final_output = 'coords.json'
     safe = []
     okay = []
     notgood = []
@@ -79,21 +81,32 @@ def main():
                 final_latitude = float((finals[0]))
                 final_longitude = float(finals[1])
                 coordinates = [final_longitude, final_latitude]
-                print(coordinates)
                 polygondict.append(coordinates)
                 if items == 0:
                     polyend = coordinates
                 items = items + 1
             polygondict.append(polyend)
-            print(polygondict)    
             output_to_geojson_polygon.main(json_output, polygondict, PPM)    
                 
             
 
     geojsonfile = open(json_output, "a")
     geojsonfile.write(r'] }')
-    geojsonfile.close()         
-              
+    geojsonfile.close()
+    with open (json_output) as jsonfile:
+        for line in jsonfile:
+            length = len(line)
+            lengthstart = length - 4
+            lengthend = length - 3
+            final_data = line[0:lengthstart]
+            final_data2 = line[lengthend:length]
+            endtowrite = final_data + final_data2
+            print(endtowrite)
+            finalfile = open(final_output, "w")
+            finalfile.write(endtowrite)
+            finalfile.close()
+    #os.remove(json_output)
+            
 
 if __name__ == '__main__':
     main()
