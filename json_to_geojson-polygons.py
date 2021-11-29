@@ -23,6 +23,7 @@ def main():
     sql_data = 0
     items = 0
     polygondict = []
+    polyend = []
     
     geojsonfile = open(json_output, "w")
     geojsonfile.write(r'{"type": "FeatureCollection","features":[ ')
@@ -75,12 +76,15 @@ def main():
                 altitude = dictdata2['altitude']
                 PPM = (dictdata2['ppm'])
                 finals = dms_to_dd.main(latitude, longitude)
-                final_latitude = finals[0]
-                final_longitude = finals[1]
-                final_altitude = altitude_to_int.main(altitude)
+                final_latitude = float((finals[0]))
+                final_longitude = float(finals[1])
                 coordinates = [final_longitude, final_latitude]
+                print(coordinates)
                 polygondict.append(coordinates)
+                if items == 0:
+                    polyend = coordinates
                 items = items + 1
+            polygondict.append(polyend)
             print(polygondict)    
             output_to_geojson_polygon.main(json_output, polygondict, PPM)    
                 
