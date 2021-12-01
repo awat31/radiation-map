@@ -4,7 +4,6 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 10,
     center: new google.maps.LatLng(55.953346, -3.188375),
-    //mapTypeId: "terrain",
   });
 
   map.data.loadGeoJson(
@@ -12,7 +11,7 @@ function initMap() {
   );
 
   var infowindow = new google.maps.InfoWindow({
-  pixelOffset: new google.maps.Size(0, -40) // offset for icon
+  pixelOffset: new google.maps.Size(0, -40)
 });
 
   map.data.addListener('click', function(evt) {
@@ -21,13 +20,5 @@ function initMap() {
   infowindow.open(map);
 });
 
-  map.data.setStyle(function(feature) {
-      var ppm = feature.getProperty('PPM');
-      var color = ppm < 400 ? 'green' : 'blue';
-      return {
-        fillColor: color,
-        strokeWeight: 1
-    };
-});
 
 }
