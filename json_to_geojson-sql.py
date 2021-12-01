@@ -39,9 +39,9 @@ def main():
         for sql_data in fullfile['particle-data']:
            data = sql_data['data']
            print(data)
-           secondlevel = json.loads(data)
-           print(secondlevel)
+           print(type(data))
            
+           secondlevel = json.loads(data)          
            PPM = (secondlevel['ppm'])
            intPPM = float(PPM)
 
@@ -67,6 +67,9 @@ def main():
             latitude = dictdata['latitude']
             longitude = dictdata['longitude']
             altitude = dictdata['altitude']
+            print(len(latitude))
+            if len(latitude) == 0:
+                break
             finals = dms_to_dd.main(latitude, longitude)
             PPM = (dictdata['ppm'])
             final_latitude = finals[0]
@@ -85,13 +88,15 @@ def main():
                 finals = dms_to_dd.main(latitude, longitude)
                 final_latitude = float((finals[0]))
                 final_longitude = float(finals[1])
+                if final_latitude == 0 and final_longitude == 0:
+                    break
                 coordinates = [final_longitude, final_latitude]
                 polygondict.append(coordinates)
                 if items == 0:
                     polyend = coordinates
                 items = items + 1
             polygondict.append(polyend)
-            output_to_geojson_polygon.main(json_output, polygondict, PPM)    
+            output_to_geojson_polygon.main(json_output, polygondict, PPM)
                 
             
 
@@ -106,7 +111,6 @@ def main():
             final_data = line[0:lengthstart]
             final_data2 = line[lengthend:length]
             endtowrite = final_data + final_data2
-            print(endtowrite)
             finalfile = open(final_output, "w")
             finalfile.write(endtowrite)
             finalfile.close()
