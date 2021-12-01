@@ -38,7 +38,9 @@ def main():
         fullfile = json.load(json_file)
         for sql_data in fullfile['particle-data']:
            data = sql_data['data']
+           print(data)
            secondlevel = json.loads(data)
+           print(secondlevel)
            
            PPM = (secondlevel['ppm'])
            intPPM = float(PPM)

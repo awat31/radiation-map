@@ -13,9 +13,14 @@ def main():
             sql = "SELECT `data` FROM `data`"
             cursor.execute(sql)
             result = cursor.fetchall()
-            print(result)
+            #result = str(result)
+            #end = len(str(result)) - 1
+            #formatted = result[1:end]
+            #print(formatted)
             data = open('data.json', "w")
-            json.dump(result, data)
+            data.write(r'{ "particle-data": ')
+            info = json.dump(result, data)
+            data.write(r' }')
             data.close()
            
 if __name__ == '__main__':
