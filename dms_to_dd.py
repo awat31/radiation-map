@@ -15,11 +15,7 @@ def main(latitude, longitude):
     long3 = ''
 
     #---------Fixing Latitude -----------------------------
-    print(len(latitude))
-    if len(latitude) == 0:
-        final_latitude = 0
-        final_longitude =  0
-        return(final_latitude, final_longitude)
+    #print(len(latitude))
     
     if latitude[0] == 'S':
         latitude_start = '-'
