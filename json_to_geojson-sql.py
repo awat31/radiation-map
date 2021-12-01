@@ -28,7 +28,7 @@ def main():
     polygondict = []
     polyend = []
 
-    #get_data.main()
+    get_data.main()
     
     geojsonfile = open(json_output, "w")
     geojsonfile.write(r'{"type": "FeatureCollection","features":[ ')
@@ -60,15 +60,14 @@ def main():
     # For each list in the alloptions list of lists (Divided by their PPM)
     # If the length of the list is empty (No reading with PPM in that range), skip it.
     for sql_data in alloptions:
+        PPM = 0
         if len(sql_data) == 0:
             continue
     # If The length of the list is 1 or two, put the data as a point (Need 3 to make a polygon)    
         elif len(sql_data) == 1 or len(sql_data) == 2:
+    # The data exists as a single list entry, this selects it so we can look at the data inside
             dictdata = sql_data[0]
             latitude = dictdata['latitude']
-            if latitude == "":
-                    items = items + 1
-                    continue
             longitude = dictdata['longitude']
             altitude = dictdata['altitude']
             # Calls script to convert Sensor DMS to DD (Read by WebApp)
@@ -80,16 +79,11 @@ def main():
             output_to_geojson.main(json_output, final_latitude, final_longitude, final_altitude, PPM)
 
     # If the length of the list is 3 or more, write the data into polygon format.
-        elif len(sql_data) > 2 :
-            
+        
+        elif len(sql_data) > 2:
             while items < len(sql_data):
                 dictdata2 = sql_data[items]
                 latitude = dictdata2['latitude']
-                # Removes Entries that have NULL Data
-                if latitude == "":
-                    items = items + 1
-                    continue
-                #------------------------------------
                 longitude = dictdata2['longitude']
                 altitude = dictdata2['altitude']
                 PPM = (dictdata2['ppm'])
@@ -105,9 +99,7 @@ def main():
     # Add the First Polygon entry to the end to complete the shape
             polygondict.append(polyend)
             output_to_geojson_polygon.main(json_output, polygondict, PPM)
-                
             
-
     geojsonfile = open(json_output, "a")
     geojsonfile.write(r'] }')
     geojsonfile.close()
