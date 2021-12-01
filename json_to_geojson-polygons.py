@@ -4,6 +4,7 @@ import altitude_to_int
 import output_to_geojson
 import output_to_geojson_polygon
 import os
+import get_data
 
 
 def main():
@@ -26,6 +27,8 @@ def main():
     items = 0
     polygondict = []
     polyend = []
+
+    get_data.main()
     
     geojsonfile = open(json_output, "w")
     geojsonfile.write(r'{"type": "FeatureCollection","features":[ ')
