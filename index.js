@@ -21,4 +21,13 @@ function initMap() {
   infowindow.open(map);
 });
 
+  map.data.setStyle(function(feature) {
+      var ppm = feature.getProperty('PPM');
+      var color = ppm < 400 ? 'green' : 'blue';
+      return {
+        fillColor: color,
+        strokeWeight: 1
+    };
+});
+
 }
