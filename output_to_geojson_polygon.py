@@ -23,7 +23,7 @@ def main(json_output, polygondict, ppm):
     geojson.write(f'"PPM": "{ppm}"')
     geojson.write(r' }, "style": { ')
     geojson.write(f'"fill":"{colour}"')
-    geojson.write(r'} } },')
+    geojson.write(r' } },')
     
 
 if __name__ == '__main__':
