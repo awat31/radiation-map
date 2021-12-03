@@ -54,6 +54,7 @@ void loop() {
     //Pull out the required GPS Data and write to variables (as String)
 
     //Serial Outputting for Debugging
+    //------------------------------
     //Serial.println("2) Global Positioning System Fixed Data ($GPGGA)");
     //Serial.println("======================================================");
     //Serial.print("UTC Time: "); Serial.println(gga.utcTime);
@@ -81,10 +82,13 @@ void loop() {
     latitude = String((gga.northSouthIndicator) + (gga.latitude));
     longitude = String((gga.eastWestIndicator) + (gga.longitude));
     altitude = String((gga.altitude)) + (gga.altitudeUnit);
+
+    //This checks if data is empty, and if it is, cancels and doesn't send the data.
     if (latitude == NULL){
         exit;
-    if (latitude == ''){
-        exit;
+    if (latitude == NULL){
+        delay(15000);
+        return;
     }
     //Publish GPS Data to Particle in consolidated JSON
     Particle.publish("PARTICLE-DATA", String::format("{\"latitude\":\"%s\",\"longitude\":\"%s\",\"altitude\":\"%s\",\"ppm\":\"%s\"}", latitude.c_str(), longitude.c_str(), altitude.c_str(), ppm.c_str()), PRIVATE);

@@ -28,18 +28,18 @@ def main():
     polygondict = []
     polyend = []
 
-    #get_data.main()
-    
+    get_data.main()
+
     geojsonfile = open(json_output, "w")
     geojsonfile.write(r'{"type": "FeatureCollection","features":[ ')
     geojsonfile.close()
-           
+
     with open('data.json') as json_file:
         fullfile = json.load(json_file)
         for sql_data in fullfile['particle-data']:
            data = sql_data['data']
            # Second Level looks at the actual data entries
-           secondlevel = json.loads(data)          
+           secondlevel = json.loads(data)
            PPM = (secondlevel['ppm'])
            intPPM = float(PPM)
 
@@ -63,29 +63,28 @@ def main():
         PPM = 0
         if len(sql_data) == 0:
             continue
-    # If The length of the list is 1 or two, put the data as a point (Need 3 to make a polygon)    
-        else: 
+    # If The length of the list is 1 or two, put the data as a point (Need 3 to make a polygon)
+        else:
     # The data exists as a single list entry, this selects it so we can look at the data inside
-            dictdata = sql_data[0]
-            latitude = dictdata['latitude']
-            longitude = dictdata['longitude']
-            altitude = dictdata['altitude']
-            # Calls script to convert Sensor DMS to DD (Read by WebApp)
-            finals = dms_to_dd.main(latitude, longitude)
-            PPM = (dictdata['ppm'])
-            final_latitude = finals[0]
-            final_longitude = finals[1]
-            final_altitude = altitude_to_int.main(altitude)
-            output_to_geojson.main(json_output, final_latitude, final_longitude, final_altitude, PPM)
-            
-    geojsonfile = open(json_output, "a")
-    geojsonfile.write(r'] }')
-    geojsonfile.close()
+            for i in sql_data:
+                dictdata = i
+                latitude = dictdata['latitude']
+                longitude = dictdata['longitude']
+                altitude = dictdata['altitude']
+                # Calls script to convert Sensor DMS to DD (Read by WebApp)
+                finals = dms_to_dd.main(latitude, longitude)
+                PPM = (dictdata['ppm'])
+                final_latitude = finals[0]
+                final_longitude = finals[1]
+                final_altitude = altitude_to_int.main(altitude)
+                output_to_geojson.main(json_output, final_latitude, final_longitude, final_altitude, PPM)
+
     with open (json_output) as jsonfile:
         for line in jsonfile:
         # This section removes the comma from the final entry so the json doesn't expect more
         # It splits the whole string at either side of the comma, then puts them together.
             length = len(line)
+            print(line)
             lengthstart = length - 4
             lengthend = length - 3
             final_data = line[0:lengthstart]
@@ -93,9 +92,9 @@ def main():
             endtowrite = final_data + final_data2
             finalfile = open(final_output, "w")
             finalfile.write(endtowrite)
-            finalfile.close()
-    os.remove(json_output)
-            
+            finalfile.write(r'] }')
+    #os.remove(json_output)
+
 
 if __name__ == '__main__':
     main()
