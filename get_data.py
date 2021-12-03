@@ -13,10 +13,6 @@ def main():
             sql = "SELECT `data` FROM `data`"
             cursor.execute(sql)
             result = cursor.fetchall()
-            #result = str(result)
-            #end = len(str(result)) - 1
-            #formatted = result[1:end]
-            #print(formatted)
             data = open('data.json', "w")
             data.write(r'{ "particle-data": ')
             info = json.dump(result, data)
