@@ -1,3 +1,9 @@
+# This script outputs all the GPS Points as polygons depending on their intensity.
+
+#**TO PREVENT THE MAP OUTPUT MESS, THE SQL READINGS NEED TO BE SORTED BY COORDINATE**
+
+# Import Required packages and scripts
+
 import dms_to_dd
 import json
 import altitude_to_int
@@ -14,6 +20,8 @@ def main():
     converted_longitude = ''
     altitude = ''
     PPM = 0
+    sql_data = 0
+    items = 0
     json_output = 'temp.json'
     final_output = 'coords.geojson'
     safe = []
@@ -22,18 +30,20 @@ def main():
     dangerous = []
     deadly = []
     yadead = []
-    alloptions = [safe, okay, notgood, dangerous, deadly, yadead]
-    sql_data = 0
-    items = 0
     polygondict = []
     polyend = []
+    alloptions = [safe, okay, notgood, dangerous, deadly, yadead]
 
+# Call the script that connects to the SQL Database and pulls data
     get_data.main()
 
+# Open the temp JSON file and begin the top of file formatting
     geojsonfile = open(json_output, "w")
     geojsonfile.write(r'{"type": "FeatureCollection","features":[ ')
     geojsonfile.close()
 
+# For each line in the data.json file (from the SQL GET)
+# Break it down to exctract the individual data points
     with open('data.json') as json_file:
         fullfile = json.load(json_file)
         for sql_data in fullfile['particle-data']:
@@ -87,7 +97,9 @@ def main():
                 longitude = dictdata2['longitude']
                 altitude = dictdata2['altitude']
                 PPM = (dictdata2['ppm'])
+                # Calls script to convert Sensor DMS to DD (WebApp renders DD, not DMS)
                 finals = dms_to_dd.main(latitude, longitude)
+                # Take the returned DD Coordinates and write to variables
                 final_latitude = float((finals[0]))
                 final_longitude = float(finals[1])
                 coordinates = [final_longitude, final_latitude]

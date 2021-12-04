@@ -81,7 +81,7 @@ def main():
                 # Calls script to convert Sensor DMS to DD (WebApp renders DD, not DMS)
                 finals = dms_to_dd.main(latitude, longitude)
                 PPM = (dictdata['ppm'])
-                # Take the returned DD Coordinates and write ti variables
+                # Take the returned DD Coordinates and write to variables
                 final_latitude = finals[0]
                 final_longitude = finals[1]
                 # Remove the Altitude Indicator from the Altitude (*THIS COULD BE REMOVED FROM THE ARGON*)
