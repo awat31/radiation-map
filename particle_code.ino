@@ -18,7 +18,6 @@ Timer _timer = Timer(1, onSerialData);
 void setup() {
     delay(2000);
     //Set Particle Variables
-    //Particle.variable("resistance", resistance);
     Particle.variable("ppm", ppm);
     Particle.variable("latitude", latitude);
     Particle.variable("longitude", longitude);
@@ -44,8 +43,6 @@ void loop() {
   co2 = mq135.getPPM();
   co2ppm = co2/100;
   ppm = String(co2ppm);
-  //Published here to keep it out of while loop
-  //Particle.publish("Parts Per Million", String(ppm), PRIVATE);
 
   //Declare we're looking for Global Positioning Data and Parse the Data
   Gga gga(_gps);
@@ -78,7 +75,7 @@ void loop() {
    // Serial.print("Data[5] = "); Serial.println(_gps.data[5]);
    // Serial.print("Data[6] = "); Serial.println(_gps.data[6]);
 
-    //Output the N/S and W/E Indicator with the latitude value
+    //Output the N/S and W/E Indicator with the latitude/longitude value
     latitude = String((gga.northSouthIndicator) + (gga.latitude));
     longitude = String((gga.eastWestIndicator) + (gga.longitude));
     altitude = String((gga.altitude)) + (gga.altitudeUnit);

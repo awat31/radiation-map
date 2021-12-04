@@ -1,3 +1,6 @@
+# The script that pulls the data from the sql DB
+
+# Import required packages
 import pymysql.cursors
 import json
 def main():
@@ -13,11 +16,12 @@ def main():
             sql = "SELECT `data` FROM `data`"
             cursor.execute(sql)
             result = cursor.fetchall()
+            # Write data to the data.json file for consolidation
             data = open('data.json', "w")
             data.write(r'{ "particle-data": ')
             info = json.dump(result, data)
             data.write(r' }')
             data.close()
-           
+
 if __name__ == '__main__':
     main()

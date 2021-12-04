@@ -21,25 +21,25 @@ def main():
     notgood = []
     dangerous = []
     deadly = []
-    fucked = []
-    alloptions = [safe, okay, notgood, dangerous, deadly, fucked]
+    yadead = []
+    alloptions = [safe, okay, notgood, dangerous, deadly, yadead]
     sql_data = 0
     items = 0
     polygondict = []
     polyend = []
 
     get_data.main()
-    
+
     geojsonfile = open(json_output, "w")
     geojsonfile.write(r'{"type": "FeatureCollection","features":[ ')
     geojsonfile.close()
-           
+
     with open('data.json') as json_file:
         fullfile = json.load(json_file)
         for sql_data in fullfile['particle-data']:
            data = sql_data['data']
            # Second Level looks at the actual data entries
-           secondlevel = json.loads(data)          
+           secondlevel = json.loads(data)
            PPM = (secondlevel['ppm'])
            intPPM = float(PPM)
 
@@ -55,7 +55,7 @@ def main():
            elif intPPM > 5000 and intPPM < 10000:
                deadly.append(secondlevel)
            elif intPPM > 10000:
-               fucked.append(secondlevel)
+               yadead.append(secondlevel)
 
     # For each list in the alloptions list of lists (Divided by their PPM)
     # If the length of the list is empty (No reading with PPM in that range), skip it.
@@ -63,7 +63,7 @@ def main():
         PPM = 0
         if len(sql_data) == 0:
             continue
-    # If The length of the list is 1 or two, put the data as a point (Need 3 to make a polygon)    
+    # If The length of the list is 1 or two, put the data as a point (Need 3 to make a polygon)
         elif len(sql_data) == 1 or len(sql_data) == 2:
     # The data exists as a single list entry, this selects it so we can look at the data inside
             dictdata = sql_data[0]
@@ -79,7 +79,7 @@ def main():
             output_to_geojson.main(json_output, final_latitude, final_longitude, final_altitude, PPM)
 
     # If the length of the list is 3 or more, write the data into polygon format.
-        
+
         elif len(sql_data) > 2:
             while items < len(sql_data):
                 dictdata2 = sql_data[items]
@@ -99,7 +99,7 @@ def main():
     # Add the First Polygon entry to the end to complete the shape
             polygondict.append(polyend)
             output_to_geojson_polygon.main(json_output, polygondict, PPM)
-            
+
     geojsonfile = open(json_output, "a")
     geojsonfile.write(r'] }')
     geojsonfile.close()
@@ -117,7 +117,7 @@ def main():
             finalfile.write(endtowrite)
             finalfile.close()
     os.remove(json_output)
-            
+
 
 if __name__ == '__main__':
     main()

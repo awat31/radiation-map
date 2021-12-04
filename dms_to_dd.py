@@ -7,55 +7,65 @@ def main(latitude, longitude):
     longitude_start = ''
     latitude_fixed = ''
     longitude_fixed = ''
-    lat1 = ''
-    lat2 = ''
-    lat3 = ''
-    long1 = ''
-    long2 = ''
-    long3 = ''
+    degrees = ''
+    minutes = ''
+    seconds = ''
+    longdegrees = ''
+    longminutes = ''
+    longseconds = ''
 
-    #---------Fixing Latitude -----------------------------    
+    #---------Fixing Latitude -----------------------------
+    # If the latitude is in the south, the coordinates need to start with a '-'
     if latitude[0] == 'S':
         latitude_start = '-'
-    
+
+    # Remove the N/S Indicator
     latitude_fixed = latitude[1:len(latitude)]
 
-    lat1 = latitude_fixed[0:2]
-    lat2 = latitude_fixed[2:4]
-    lat3 = latitude_fixed[5:len(latitude)]
-    lat3 = lat3[0] + '.' + lat3[1:len(lat3)]
+    # This section splits the DMS into it's parts - Degrees, Minutes Seconds
+    degrees = latitude_fixed[0:2]
+    minutes = latitude_fixed[2:4]
+    seconds = latitude_fixed[5:len(latitude)]
+    seconds = seconds[0] + '.' + seconds[1:len(seconds)]
 
-    lat1 = int(lat1)
-    lat2 = int(lat2)
-    lat3 = float(lat3)
+    # Convert to int/float so we can do maths
+    degrees = int(degrees)
+    minutes = int(minutes)
+    seconds = float(seconds)
 
-
-    final_latitude_float = lat1 + lat2/60 + lat3/3600
+    # The conversion calculation to DD
+    final_latitude_float = degrees + minutes/60 + seconds/3600
     final_latitude_str = str(final_latitude_float)
+    # Add the '-' if necessary
     final_latitude = latitude_start + final_latitude_str
 
 
     #---------Fixing Longitude -----------------------------------
+    # If the longitude is in the west, the coordinates need to start with a '-'
     if longitude[0:3] == 'W00':
         longitude_start = '-'
         longitude_fixed = longitude[3:len(longitude)]
     else:
         longitude_fixed = longitude[1:len(longitude)]
-    long1 = longitude_fixed[0:1]
-    long2 = longitude_fixed[1:3]
-    long3 = longitude_fixed[4:len(latitude)]
-    long3 = long3[0] + '.' + long3[1:len(long3)]
+    # This section splits the DMS into it's parts - Degrees, Minutes Seconds
+    longdegrees = longitude_fixed[0:1]
+    longminutes = longitude_fixed[1:3]
+    longseconds = longitude_fixed[4:len(latitude)]
+    longseconds = longseconds[0] + '.' + longseconds[1:len(longseconds)]
 
-    long1 = int(long1)
-    long2 = int(long2)
-    long3 = float(long3)
+    # Convert to int/float so we can do maths
+    longdegrees = int(longdegrees)
+    longminutes = int(longminutes)
+    longseconds = float(longseconds)
 
-    final_longitude_float = long1 + long2/60 + long3/3600
+    # The conversion calculation to DD
+    final_longitude_float = longdegrees + longminutes/60 + longseconds/3600
     final_longitude_str = str(final_longitude_float)
+    # Add the '-' if necessary
     final_longitude = longitude_start + final_longitude_str
 
     #---------Print Finals-------------------------------------------
-
+    
     return(final_latitude, final_longitude)
 
 
