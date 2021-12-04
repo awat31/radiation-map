@@ -1,6 +1,8 @@
 import json
 
+# This script formats the data ready for output as a GeoJSON polygon
 def main(json_output, polygondict, ppm):
+    # The colour is to create different layers depending on the intensity of the PPM reading.
     colour = ''
     ppm = float(ppm)
     if ppm < 400:
@@ -15,7 +17,8 @@ def main(json_output, polygondict, ppm):
         colour = 'red'
     elif ppm > 10000:
         colour = 'darkred'
-        
+
+    # Append the file to prevent overwriting
     geojson = open(json_output, "a")
     geojson.write(r'{ "type": "Feature", "geometry": { "type": "Polygon",')
     geojson.write(f'"coordinates": [ {polygondict} ]')
@@ -24,7 +27,7 @@ def main(json_output, polygondict, ppm):
     geojson.write(r' }, "style": { ')
     geojson.write(f'"fill":"{colour}"')
     geojson.write(r' } },')
-    
+
 
 if __name__ == '__main__':
     main()
