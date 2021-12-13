@@ -1,0 +1,7 @@
+**NOTE - DATABASE AND WEB APP HAVE BEEN SHUTDOWN AND PARTICLE DEVICE DISMANTLED
+NO FURTHER DATA WILL BE COLLECTED FOR THIS PROJECT**
+**FINAL DATA PULL - 13/12/2021 - SQL DATABASE WAS DELETED AFTERWARDS**
+An example data output can be seen at https://awat31.github.io/radiation-map / http://maps.notbadindustrial.co.uk
+
+Run the Data_processing.py Script to create the points only style map.
+Run the json_to_geojson-sql.py to create the polygon map.
